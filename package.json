@@ -1,0 +1,23 @@
+{
+  "name": "anote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trebom/anote.git"
+  },
+  "homepage": "https://github.com/trebom/anote#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.3",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^5.0.0",
+    "tailwindcss": "^2.0.2"
+  }
+}
