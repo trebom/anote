@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +29,8 @@ DEBUG = bool(os.environ.get("DEBUG"))
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = [".elasticbeanstalk.com", "127.0.0.1"]
+ALLOWED_HOSTS = [".elasticbeanstalk.com",
+                 "amazonaws.com", "0.0.0.0", "127.0.0.1"]
 
 
 # Application definition
