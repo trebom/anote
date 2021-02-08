@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
-
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +27,7 @@ DEBUG = bool(os.environ.get("DEBUG"))
 
 
 ALLOWED_HOSTS = [".elasticbeanstalk.com",
-                 "amazonaws.com", "0.0.0.0", "127.0.0.1"]
+                 "ec2-34-229-49-171.compute-1.amazonaws.com:8000", "0.0.0.0", "127.0.0.1"]
 
 
 # Application definition
@@ -154,9 +151,3 @@ if not DEBUG:
     AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
     AWS_S3_CUSTOM_DOMAN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
     STATIC_URL = "https://{AWS_S3_CUSTOM_DOMAIN}/static"
-
-    sentry_sdk.init(
-        dsn=os.environ.get("SENTRY_URL"),
-        integrations=[DjangoIntegration()],
-        send_default_pii=True,
-    )
